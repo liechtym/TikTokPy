@@ -1,7 +1,6 @@
 """
 Asynchronous API for data scraping
 """
-print('NEW VERSION HERE')
 from __future__ import annotations
 
 import json
@@ -29,7 +28,7 @@ from tiktokapipy.models.challenge import Challenge, LightChallenge, challenge_li
 from tiktokapipy.models.raw_data import APIResponse
 from tiktokapipy.models.user import User, user_link
 from tiktokapipy.models.video import LightVideo, Video, video_link
-
+print('NEW VERSION HERE')
 
 class AsyncLightIter(Generic[_LightIterInT, _LightIterOutT], ABC):
     """
