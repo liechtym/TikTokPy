@@ -6,6 +6,7 @@ from __future__ import annotations
 
 import json
 import traceback
+import time
 from abc import ABC, abstractmethod
 from typing import TYPE_CHECKING, Callable, Generic, List, Tuple, Type
 
@@ -174,6 +175,8 @@ class AsyncTikTokAPI(TikTokAPI):
             await page.route("**/api/post/item_list/*", capture_api_extras)
             try:
                 await page.goto(link)
+                time.sleep(5)
+                print(page.innerHTML("*"))
                 await page.wait_for_selector("#SIGI_STATE", state="attached")
 
                 if self.default_scroll_down_time > 0:
