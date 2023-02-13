@@ -28,7 +28,7 @@ from tiktokapipy.models.challenge import Challenge, LightChallenge, challenge_li
 from tiktokapipy.models.raw_data import APIResponse
 from tiktokapipy.models.user import User, user_link
 from tiktokapipy.models.video import LightVideo, Video, video_link
-print('NEW VERSION HERE')
+print('NEW VERSION HERE 2')
 
 class AsyncLightIter(Generic[_LightIterInT, _LightIterOutT], ABC):
     """
@@ -175,7 +175,10 @@ class AsyncTikTokAPI(TikTokAPI):
             try:
                 await page.goto(link)
                 await asyncio.sleep(5)
-                print(page.innerHTML("*"))
+                content = await page.content();
+                context = page.context();
+                print('content', content)
+                print('context', context)
                 await page.wait_for_selector("#SIGI_STATE", state="attached")
 
                 if self.default_scroll_down_time > 0:
