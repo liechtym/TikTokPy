@@ -175,8 +175,8 @@ class AsyncTikTokAPI(TikTokAPI):
             try:
                 await page.goto(link)
                 await asyncio.sleep(5)
-                content = await page.content();
-                context = page.context();
+                content = await page.content()
+                context = page.context
                 print('content', content)
                 print('context', context)
                 await page.wait_for_selector("#SIGI_STATE", state="attached")
