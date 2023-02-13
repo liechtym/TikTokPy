@@ -173,8 +173,9 @@ class AsyncTikTokAPI(TikTokAPI):
             await page.route("**/api/comment/list/*", capture_api_extras)
             await page.route("**/api/post/item_list/*", capture_api_extras)
             try:
-                await page.goto(link)
-                await asyncio.sleep(5)
+                res = await page.goto(link)
+                headers = await res.all_headers()
+                print('Headers:', headers)
                 content = await page.content()
                 context = page.context
                 print('content', content)
