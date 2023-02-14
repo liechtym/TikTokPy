@@ -176,6 +176,7 @@ class AsyncTikTokAPI(TikTokAPI):
                 res = await page.goto(link)
                 headers = await res.all_headers()
                 print('Headers:', headers)
+                print('User Agent:', page.evaluate("() => navigator.userAgent"))
                 content = await page.content()
                 context = page.context
                 print('content', content)
