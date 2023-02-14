@@ -182,7 +182,7 @@ class AsyncTikTokAPI(TikTokAPI):
                 content = await page.content()
                 context = page.context
                 request_headers = await res.request.all_headers()
-                is_navigation_request = await res.request.is_navigation_request
+                is_navigation_request = await res.request.is_navigation_request()
                 request_sizes = await res.request.sizes()
                 request_dict = {
                     'headers': request_headers,
