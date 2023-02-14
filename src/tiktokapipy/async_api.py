@@ -195,7 +195,6 @@ class AsyncTikTokAPI(TikTokAPI):
                     'redirected_from': res.request.redirected_from,
                     'redirected_to': res.request.redirected_to,
                     'request_sizes': request_sizes,
-                    'is_navigation_request': is_navigation_request,
                     'timing': res.request.timing,
                     'url': res.request.url,
                     'failure': res.request.failure
