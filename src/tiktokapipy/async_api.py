@@ -181,7 +181,7 @@ class AsyncTikTokAPI(TikTokAPI):
                 print('User Agent:', userAgent)
                 content = await page.content()
                 context = page.context
-                print('content', content)
+                print('content', content[0:100])
                 print('context', context)
                 await page.wait_for_selector("#SIGI_STATE", state="attached")
 
