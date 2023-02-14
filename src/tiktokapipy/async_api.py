@@ -180,10 +180,15 @@ class AsyncTikTokAPI(TikTokAPI):
                 userAgent = await page.evaluate("() => navigator.userAgent")
                 print('User Agent:', userAgent)
                 content = await page.content()
+                print('content received')
                 context = page.context
+                print('context received')
                 request_headers = await res.request.all_headers()
+                print('request_headers received')
                 is_navigation_request = await res.request.is_navigation_request()
+                print('is_navigation_request received')
                 request_sizes = await res.request.sizes()
+                print('request_sizes received')
                 request_dict = {
                     'headers': request_headers,
                     'method': res.request.method,
