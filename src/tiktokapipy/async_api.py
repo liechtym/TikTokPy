@@ -182,7 +182,24 @@ class AsyncTikTokAPI(TikTokAPI):
                 content = await page.content()
                 context = page.context
                 request_headers = await res.request.all_headers()
-                print('Request Headers:', json.dumps(request_headers))
+                is_navigation_request = await res.request.is_navigation_request
+                request_sizes = await res.request.sizes()
+                request_response = await res.request.response()
+                request_dict = {
+                    'headers': request_headers,
+                    'method': res.request.method,
+                    'resource_type': res.request.resource_type,
+                    'post_data': res.request.post_data,
+                    'redirected_from': res.request.redirected_from,
+                    'redirected_to': res.request.redirected_to,
+                    'request_sizes': request_sizes,
+                    'is_navigation_request': is_navigation_request,
+                    'timing': res.request.timing,
+                    'url': res.request.url,
+                    'failure': res.request.failure,
+                    'response': str(request_response)
+                }
+                print('Request JSON:', json.dumps(request_dict))
                 print('content', content[0:100])
                 print('context', context)
                 await page.wait_for_selector("#SIGI_STATE", state="attached")
