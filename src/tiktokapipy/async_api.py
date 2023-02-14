@@ -184,7 +184,6 @@ class AsyncTikTokAPI(TikTokAPI):
                 request_headers = await res.request.all_headers()
                 is_navigation_request = await res.request.is_navigation_request
                 request_sizes = await res.request.sizes()
-                request_response = await res.request.response()
                 request_dict = {
                     'headers': request_headers,
                     'method': res.request.method,
@@ -196,8 +195,7 @@ class AsyncTikTokAPI(TikTokAPI):
                     'is_navigation_request': is_navigation_request,
                     'timing': res.request.timing,
                     'url': res.request.url,
-                    'failure': res.request.failure,
-                    'response': str(request_response)
+                    'failure': res.request.failure
                 }
                 print('Request JSON:', json.dumps(request_dict))
                 print('content', content[0:100])
