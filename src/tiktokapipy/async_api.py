@@ -116,6 +116,7 @@ class AsyncTikTokAPI(TikTokAPI):
         else:
             context_kwargs.update(self.playwright.devices["Desktop Edge"])
 
+        print('context_kwargs', context_kwargs)
         self._context = await self.browser.new_context(**context_kwargs)
         self.context.set_default_navigation_timeout(self.navigation_timeout)
 
